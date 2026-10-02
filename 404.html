@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Za Sokolovnou</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#0c0e11">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #0c0e11; --bg-2: #14171c; --ink: #f2f3f5; --ink-2: #c9ced6; --mute: #9aa3ae; --hair: rgb(255 255 255 / .09); --hair-2: rgb(255 255 255 / .18);
+    --red: #e0342b; --red-txt: #ff7a70; --ease: cubic-bezier(.32,.72,0,1); color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.55 "Barlow", "Bahnschrift", system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+    display: grid; place-items: center; padding: 24px 16px calc(24px + env(safe-area-inset-bottom)); overflow-x: hidden; }
+  .bg { position: fixed; inset: 0; pointer-events: none; opacity: .55;
+    background: radial-gradient(60% 50% at 70% 20%, rgb(224 52 43 / .10), transparent 70%), radial-gradient(50% 60% at 15% 90%, rgb(143 179 201 / .06), transparent 70%); }
+  .vr { position: fixed; inset: -10%; pointer-events: none; opacity: .5; }
+  .vr path { fill: none; stroke: rgb(255 255 255 / .05); stroke-width: 1; }
+  main { position: relative; width: min(420px, 100%); opacity: 0; transform: translateY(18px); animation: in 1s var(--ease) .1s forwards; }
+  @keyframes in { to { opacity: 1; transform: none; } }
+  .mark { width: 44px; height: 44px; border-radius: 12px; background: var(--bg-2); box-shadow: 0 0 0 1px var(--hair); display: grid; place-items: center; }
+  .mark svg { width: 26px; height: 26px; fill: none; stroke-width: 1.6; }
+  .eyebrow { margin: 34px 0 12px; font: 500 12px/1 "Barlow", sans-serif; letter-spacing: .24em; text-transform: uppercase; color: var(--mute); }
+  h1 { margin: 0; font-size: clamp(34px, 8vw, 46px); line-height: 1; font-weight: 500; letter-spacing: -.02em; }
+  .sub { margin: 16px 0 0; color: var(--ink-2); max-width: 34ch; }
+  form { margin-top: 34px; display: grid; gap: 10px; }
+  label { font: 500 13px "Barlow", sans-serif; color: var(--mute); letter-spacing: .02em; }
+  .row { display: flex; gap: 8px; }
+  input { flex: 1; min-width: 0; height: 52px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--hair-2); background: var(--bg-2); color: var(--ink);
+    font: 500 16px "Barlow", sans-serif; letter-spacing: .02em; transition: border-color .3s var(--ease), box-shadow .3s var(--ease); }
+  input:focus-visible { outline: none; border-color: var(--red-txt); box-shadow: 0 0 0 4px rgb(224 52 43 / .18); }
+  input[aria-invalid="true"] { border-color: var(--red); animation: shake .45s var(--ease); }
+  @keyframes shake { 20% { transform: translateX(-6px); } 40% { transform: translateX(5px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(2px); } }
+  button { height: 52px; padding: 0 8px 0 22px; border-radius: 999px; border: 0; background: var(--red); color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 12px;
+    font: 600 16px "Barlow", sans-serif; white-space: nowrap; transition: background .3s var(--ease), transform .3s var(--ease); touch-action: manipulation; }
+  button:hover { background: #ea4036; } button:active { transform: scale(.98); }
+  button:disabled { opacity: .7; cursor: progress; }
+  button i { width: 38px; height: 38px; border-radius: 999px; background: rgb(0 0 0 / .22); display: grid; place-items: center; }
+  button svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 1.8; }
+  .err { min-height: 22px; margin: 2px 0 0 18px; font-size: 14px; color: var(--red-txt); }
+  .foot { margin-top: 42px; padding-top: 18px; border-top: 1px solid var(--hair); color: #6f7882; font-size: 13px; }
+  .noscript { color: var(--red-txt); }
+  @media (prefers-reduced-motion: reduce) { main { animation: none; opacity: 1; transform: none; } input[aria-invalid="true"] { animation: none; } }
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<svg class="vr" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <path d="M-50 620 C 180 560, 320 640, 520 590 S 880 520, 1250 560"/><path d="M-50 560 C 200 500, 340 590, 540 540 S 900 470, 1250 500"/>
+  <path d="M-50 500 C 220 440, 360 540, 560 490 S 920 420, 1250 440"/><path d="M-50 440 C 240 380, 380 490, 580 440 S 940 370, 1250 380"/>
+  <path d="M-50 380 C 260 320, 400 440, 600 390 S 960 320, 1250 320"/><path d="M-50 320 C 280 260, 420 390, 620 340 S 980 270, 1250 260"/>
+  <path d="M-50 260 C 300 200, 440 340, 640 290 S 1000 220, 1250 200"/><path d="M-50 200 C 320 140, 460 290, 660 240 S 1020 170, 1250 140"/>
+</svg>
+<main>
+  <div class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 15h18" stroke="#e0342b"/><path d="M7 15V8h10v7" stroke="#f2f3f5"/></svg></div>
+  <p class="eyebrow">Neveřejná prezentace</p>
+  <h1>Polyfunkční dům Za&nbsp;Sokolovnou</h1>
+  <p class="sub">Film, vizualizace a&nbsp;nabídka bytů jsou přístupné jen po zadání hesla.</p>
+  <form id="f" autocomplete="on" novalidate>
+    <label for="heslo">Heslo</label>
+    <input type="text" name="username" value="Za Sokolovnou" autocomplete="username" hidden aria-hidden="true" tabindex="-1">
+    <div class="row">
+      <input id="heslo" name="password" type="password" autocomplete="current-password" required spellcheck="false" aria-describedby="err" autofocus>
+      <button type="submit" id="b"><span>Vstoupit</span><i aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></i></button>
+    </div>
+    <p class="err" id="err" role="alert" aria-live="assertive"></p>
+  </form>
+  <p class="foot">Praha-Suchdol · obsah je šifrovaný a&nbsp;dešifruje se až ve vašem prohlížeči.</p>
+  <noscript><p class="noscript">Pro zobrazení je potřeba zapnout JavaScript.</p></noscript>
+</main>
+<script>
+(() => {
+  "use strict";
+  const CFG = {"sul": "DLOkBI8BAMpfhtp/8Qxk8g==", "iter": 310000, "kontrola": "RhcsBx9/934uio2gwOWpIxTiQ6ipdt6Nao81EMqe7tGTeen210GoC2CUUw=="};
+  const f = document.getElementById("f"), inp = document.getElementById("heslo"), btn = document.getElementById("b"), err = document.getElementById("err");
+  const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+  const chyba = (t) => { err.textContent = t; inp.setAttribute("aria-invalid", "true"); inp.focus(); inp.select(); btn.disabled = false; btn.firstElementChild.textContent = "Vstoupit"; setTimeout(() => inp.removeAttribute("aria-invalid"), 600); };
+  if (!("serviceWorker" in navigator) || !window.crypto || !crypto.subtle || !window.indexedDB) { err.textContent = "Tento prohlížeč neumí zobrazit šifrovaný obsah. Zkuste aktuální Chrome, Edge, Firefox nebo Safari."; btn.disabled = true; return; }
+  const db = () => new Promise((ok, ko) => { const r = indexedDB.open("zs-zamek", 1); r.onupgradeneeded = () => r.result.createObjectStore("k"); r.onsuccess = () => ok(r.result); r.onerror = () => ko(r.error); });
+  // už přihlášený prohlížeč, kterému jen chybí aktivní service worker (první načtení po zavření): zaregistrovat a načíst znovu
+  (async () => {
+    try {
+      const d = await db(); const v = await new Promise((ok) => { const t = d.transaction("k").objectStore("k").get("klic"); t.onsuccess = () => ok(t.result); t.onerror = () => ok(null); });
+      if (v && v.key && !navigator.serviceWorker.controller) { await navigator.serviceWorker.register("sw.js"); await navigator.serviceWorker.ready; location.reload(); }
+    } catch (e) { /* první návštěva */ }
+  })();
+  f.addEventListener("submit", async (e) => {
+    e.preventDefault(); err.textContent = "";
+    const h = inp.value; if (!h) { chyba("Zadejte heslo."); return; }
+    btn.disabled = true; btn.firstElementChild.textContent = "Ověřuji…";
+    try {
+      const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(h), "PBKDF2", false, ["deriveKey"]);
+      const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64(CFG.sul), iterations: CFG.iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+      const k = b64(CFG.kontrola);
+      await crypto.subtle.decrypt({ name: "AES-GCM", iv: k.slice(0, 12) }, key, k.slice(12));      // špatné heslo -> výjimka
+      const d = await db();
+      await new Promise((ok, ko) => { const t = d.transaction("k", "readwrite"); t.objectStore("k").put({ key, t: Date.now() }, "klic"); t.oncomplete = ok; t.onerror = () => ko(t.error); });
+      btn.firstElementChild.textContent = "Otevírám…";
+      const reg = await navigator.serviceWorker.register("sw.js"); await navigator.serviceWorker.ready;
+      if (!navigator.serviceWorker.controller) await new Promise((ok) => { navigator.serviceWorker.addEventListener("controllerchange", ok, { once: true }); setTimeout(ok, 1500); });
+      location.reload();
+    } catch (ex) { chyba("Heslo nesouhlasí."); }
+  });
+})();
+</script>
+</body>
+</html>
